@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> student app templates / index.html</h1>
+    <h1>{{name}}</h1>
+    <h1>{{age}}</h1>
+    <h1>{{courses}}</h1>
+    <ul> 
+        {% for course in courses %}
+            <li>{{course}}</li>
+        {% endfor %}
+    </ul>
+{% if nonkey %}
+    <h1>{{nonkey}}</h1>
+{% endif %}
+
+</body>
+</html>
