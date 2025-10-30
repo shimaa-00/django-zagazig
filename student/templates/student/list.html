@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title> List Students From DB </title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'student/css/style.css' %}">
+{% endblock %}
+{% block content %}
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Image</th>
+</tr>
+{% for student in students %}
+<tr>
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.age}}</td>
+    {% if student.img %}
+    <td><img src="{{student.img.url}}" alt="" srcset=""> </td>
+    {% else %}
+    <td><img src="{% static 'student/images/man.jpg'%}" alt="" srcset=""> </td>
+
+    {% endif %}
+</tr>
+{% endfor %}
+
+</table>
+{% endblock %}

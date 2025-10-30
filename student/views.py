@@ -14,3 +14,9 @@ def return_index_html ( request):
     studnets = [{"name" : "mohammed" , "age" : 23 , "gpa" :2.5} , {} , {}]
     context = {"name" : "amer" , "age": 23 , 'courses' : ["python" , "html" , "css"]}
     return render (request  , 'student/index.html'  , context=context )
+from .models import Student
+
+def returns_students_from_db(request):
+    # select * from student_student ;
+    students = Student.objects.all() 
+    return render (request , 'student/list.html' , {"students" :students})

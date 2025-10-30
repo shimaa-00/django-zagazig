@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 from student.views import handle_student_request 
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     # 127.0.0.1:8000/admin
     path('admin/', admin.site.urls),
@@ -25,4 +27,4 @@ urlpatterns = [
     # path("hi/" ,say_hi ),
     # 127.0.0.1:8000/course/
     path("course/" ,include('course.urls') )
-]
+] + static (settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
